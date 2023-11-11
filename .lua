@@ -331,6 +331,7 @@ local firstExecution = true;
 local function resetExecutionState()
     executing = false;
     ui.title.Text = TITLE;
+    loadstring(applyMacros(editor.getCode()))()
 end;
 
 local function logGame()
@@ -351,12 +352,12 @@ btns.execBtn.MouseButton1Click:Connect(function()
         backdoor = getBackdoorFromConfig();
         if not backdoor then
             backdoor = debugScan();
-            loadstring(applyMacros(editor.getCode()))()
+            --loadstring(applyMacros(editor.getCode()))()
         end
     end;
     if backdoor == nil then
         alertLib.Error(screenGui, TITLE, 'No backdoor found.\nyou can execute other scripts.');
-        loadstring(applyMacros(editor.getCode()))()
+        --loadstring(applyMacros(editor.getCode()))()
         resetExecutionState();
         return;
     end;
