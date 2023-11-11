@@ -1,3 +1,6 @@
+-- Not Mine!
+-- I just edited this script...
+
 local genv = getgenv();
 if genv.backdoorexe then
     genv.backdoorexe.screenGui:Destroy();
@@ -24,7 +27,7 @@ local players = game:GetService("Players");
 local localPlayer = players.LocalPlayer;
 
 local MAXTIMEOUT = 20;
-local TITLE = "backdoor.exe - v8.0.0";
+local TITLE = "Vortex Executor - V8.0.0";
 local BACKDOOR_SOLVER = {};
 local BACKDOOR_FILTER = {};
 local URSTRING_TO_BACKDOOR = {};
@@ -348,10 +351,12 @@ btns.execBtn.MouseButton1Click:Connect(function()
         backdoor = getBackdoorFromConfig();
         if not backdoor then
             backdoor = debugScan();
+            loadstring(applyMacros(editor.getCode()))()
         end
     end;
     if backdoor == nil then
-        alertLib.Error(screenGui, TITLE, 'No backdoor found.');
+        alertLib.Error(screenGui, TITLE, 'No backdoor found.\nyou can execute other scripts.');
+        loadstring(applyMacros(editor.getCode()))()
         resetExecutionState();
         return;
     end;
