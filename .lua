@@ -1,5 +1,5 @@
 -- Not Mine!
--- I just edited this script...
+-- I just edited this script... v
 
 local genv = getgenv();
 if genv.backdoorexe then
@@ -233,11 +233,11 @@ local function scan(remotes, delayFactor)
     task.delay(timeOut, function()
         connection:Disconnect();
     end);
-    local endTime = tick() + timeOut;
-    while connection.Connected do
-        ui.title.Text = TITLE .. (" [Waiting: %.1f]"):format(endTime-tick());
-        task.wait();
-    end;
+    --local endTime = tick() + timeOut;
+    --while connection.Connected do
+    --    ui.title.Text = TITLE .. (" [Waiting: %.1f]"):format(endTime-tick());
+    --    task.wait();
+    --end;
     ui.title.Text = TITLE .. " [Waiting]";
     table.clear(URSTRING_TO_BACKDOOR);
     return backdoor;
