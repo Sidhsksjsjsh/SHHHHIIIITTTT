@@ -213,7 +213,6 @@ local function scan(remotes, delayFactor)
     connection = workspace.ChildAdded:Connect(function(child)
         local gateway = URSTRING_TO_BACKDOOR[child.Name];
         if gateway then
-            -- store backdoor
             backdoor = gateway;
             connection:Disconnect();
         end;
