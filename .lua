@@ -1,5 +1,5 @@
 -- Not Mine!
--- I just edited this script... v
+-- I just edited this script... 
 
 local genv = getgenv();
 if genv.backdoorexe then
@@ -302,8 +302,8 @@ local function debugScan()
     local start = tick();
     local backdoor = scan(nil, 2.5);
     local endTime = tick();
-    print("Backdoors found: " .. (backdoor and 1 or 0));
-    print("Time taken: " .. (endTime - start) .. "ms");
+    warn("Backdoors found: " .. (backdoor and 1 or 0));
+    warn("Time taken: " .. (endTime - start) .. "ms");
     return backdoor;
 end;
 
@@ -352,12 +352,11 @@ btns.execBtn.MouseButton1Click:Connect(function()
         backdoor = getBackdoorFromConfig();
         if not backdoor then
             backdoor = debugScan();
-            --loadstring(applyMacros(editor.getCode()))()
+            alertLib.Success(screenGui, TITLE, 'TEST MODE');
         end
     end;
     if backdoor == nil then
-        alertLib.Error(screenGui, TITLE, 'No backdoor found.\nyou can execute other scripts.');
-        --loadstring(applyMacros(editor.getCode()))()
+        alertLib.Error(screenGui, TITLE, 'No backdoor found!');
         resetExecutionState();
         return;
     end;
