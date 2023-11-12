@@ -245,7 +245,7 @@ end;
 
 local executing = false;
 local function execute(code, gateway, canDebug, disableAlerts)
-    assert(code and gateway, "missing code or gateway");
+    --assert(code and gateway, "missing code or gateway");
     ui.title.Text = TITLE .. " [Executing]";
     local completed = Instance.new("BindableEvent");
     completed.Event:Connect(function()
