@@ -358,7 +358,7 @@ btns.execBtn.MouseButton1Click:Connect(function()
     if backdoor == nil then
         alertLib.Error(screenGui, TITLE, 'No backdoor found!');
         resetExecutionState();
-        return;
+        --return;
     end;
     if firstExecution then
         execute("", backdoor, false, true):Wait();
